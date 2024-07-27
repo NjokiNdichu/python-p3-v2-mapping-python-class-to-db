@@ -132,3 +132,10 @@ class TestDepartment:
         row = CURSOR.execute(sql, (id2,)).fetchone()
         # assert department2 row is deleted
         assert (row is None)
+
+    @classmethod
+    def create(cls, name, location):
+        """ Initialize a new Department instance and save the object to the database """
+        department = cls(name, location)
+        department.save()
+        return department
